@@ -1,3 +1,10 @@
+from requests_html import HTMLSession
+import csv
+import time
+from datetime import datetime, timedelta
+from requests.exceptions import RequestException
+
+
 def fetch_data(url):
     session = HTMLSession()
     try:
@@ -8,24 +15,12 @@ def fetch_data(url):
         return None
     return response
 
-def parse_press_releases(response):
-    if response is None:
-        return []
-
-    press_releases = []
-    articles = response.html.find(".views-row", first=False)
-    for article in articles:
-        press_release = parse_article(article)
-        if press_release is not None:
-            press_releases.append(press_release)
-
-    return press_releases
-
-def get_press_releases():
+def get_press_releases(url,perse_function):
     # グローバルスコープで定義したURLを使用
-    response = fetch_data(URL)
+    response = fetch_data(url)
     time.sleep(1)
-    return parse_press_releases(response)
+    press_releases = perse_function(response)
+    return press_releases
 
 def read_stock_data(filepath):
     with open(filepath, 'r') as f:
