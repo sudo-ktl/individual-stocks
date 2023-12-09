@@ -114,7 +114,13 @@ if __name__ == "__main__":
     company_dict = {
         'nikkei225': 'https://kabutan.jp/stock/kabuka?code=0000&ashi=day&page=',
         'tdk': 'https://kabutan.jp/stock/kabuka?code=6762&ashi=day&page=',
-        'fastRetailing': 'https://kabutan.jp/stock/kabuka?code=9983&ashi=day&page='
+        'fastRetailing': 'https://kabutan.jp/stock/kabuka?code=9983&ashi=day&page=',
+        'jal':'https://kabutan.jp/stock/kabuka?code=9201&ashi=day&page=',
+        'keio':'https://kabutan.jp/stock/kabuka?code=9008&ashi=day&page=',
+        'nichirei':'https://kabutan.jp/stock/kabuka?code=2871&ashi=day&page=',
+        'renesasElectronics':'https://kabutan.jp/stock/kabuka?code=6723&ashi=day&page=',
+        'yamatoHd':'https://kabutan.jp/stock/kabuka?code=9064&ashi=day&page=',
+        'keisei':'https://kabutan.jp/stock/kabuka?code=9009&ashi=day&page=',
     }
     main(company_dict)
 

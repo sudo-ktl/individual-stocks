@@ -5,7 +5,7 @@ import utils
 import csv
 
 # グローバルスコープでURLを定義
-URL = "https://www.tdk.com/ja/news_center/press/index.html?f%5B0%5D=news_center_press_releases_display_date%3A2023"
+# URL = "https://press.jal.co.jp/ja/index.html"
 
 
 # 記事のテキストを取得
@@ -62,7 +62,7 @@ def parse_press_releases(response):
         return []
 
     press_releases = []
-    articles = response.html.find(".views-row", first=False)
+    articles = response.html.find("li.c-news-list__item", first=False)
     for article in articles:
         press_release = parse_article(article)
         if press_release is not None:
@@ -73,12 +73,19 @@ def parse_press_releases(response):
 def main():
     print('スクレイピングを開始します')
     dt_now = utils.get_current_date()
-    press_releases = utils.get_press_releases(URL, parse_press_releases)
+    press_releases = []
+    for i in range(1, 18):
+        if(i == 1):
+            URL = "https://press.jal.co.jp/ja/index.html"
+        else:
+            URL = f"https://press.jal.co.jp/ja/index_{i}.html"
+
+        press_releases += utils.get_press_releases(URL, parse_press_releases)
     print('press_releasesを準備しました')
 
     print(press_releases)
 
-    with open(f'data/tdk_news.csv', 'w', newline='') as csvfile:
+    with open(f'data/jal_news.csv', 'w', newline='') as csvfile:
         fieldnames = press_releases[0].keys()
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
