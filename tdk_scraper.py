@@ -78,13 +78,16 @@ def main():
 
     print(press_releases)
 
-    with open(f'data/tdk_news.csv', 'w', newline='') as csvfile:
-        fieldnames = press_releases[0].keys()
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    company_name = 'tdk'
+    processed_data = utils.process_data(press_releases, company_name)
+    utils.save_data_to_csv(processed_data, company_name)
+    # with open(f'data/tdk_news.csv', 'w', newline='') as csvfile:
+    #     fieldnames = press_releases[0].keys()
+    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-        writer.writeheader()
-        for press_release in reversed(press_releases):
-            writer.writerow(press_release)
+    #     writer.writeheader()
+    #     for press_release in reversed(press_releases):
+    #         writer.writerow(press_release)
 
 if __name__ == '__main__':
     main()

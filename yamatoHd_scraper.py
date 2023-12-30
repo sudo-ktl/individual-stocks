@@ -2,8 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
 import time
 import utils
+from companies import company_dict
 
 company_name = "yamatoHd"
 
@@ -27,29 +30,28 @@ def get_dynamic_page_links(driver,url):
 
     return links_dates
 
-def main(company_name):
-    # WebDriverのセットアップ
+def main(company_name,url,ignore_strings):
+    options = Options()
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
     service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
-
+    driver = webdriver.Chrome(service=service, options=options)
+    session = utils.create_session()
     links_dates = []
-    for page in range(1, 8):  # ページ1から7までループ
-        url = f"https://www.yamato-hd.co.jp/news/?year=2023&cate=&label=all&page={page}"
-        links_dates.extend(get_dynamic_page_links(driver, url))
+    try:
+        for page in range(1, 8):
+            page_url = f"{url}{page}"
+            links_dates.extend(get_dynamic_page_links(driver, page_url))
+        data = utils.get_data(session, links_dates, ignore_strings,driver=driver)
+        processed_data = utils.process_data(data, company_name)
+        utils.save_data_to_csv(processed_data, company_name)
+    finally:
+        driver.quit()
 
-    data = []
-    for link, date in links_dates:
-        if link.endswith(".pdf"):
-            text = utils.get_pdf_text(driver, link)
-        else:
-            text = text = utils.scrape_dynamic_site_text(driver, link)
-        if text is not None:
-            data.append({'newsDate': date, 'content': text})
-    # WebDriverを終了
-    driver.quit()
-
-    print(links_dates)
-    utils.write_to_csv(data, f"data/{company_name}_news.csv")
 
 if __name__ == "__main__":
-    main(company_name)
+    company_name = company_dict['yamatoHd']['name']
+    url = company_dict['yamatoHd']['newsUrl']
+    ignore_strings = ['.pdf']
+    main(company_name,url,ignore_strings)

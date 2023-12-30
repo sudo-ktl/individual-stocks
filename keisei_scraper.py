@@ -74,7 +74,10 @@ def main(company_name):
         else:
             text = utils.scrape_text(session,link,verify=False)
         time.sleep(2)
-    utils.write_to_csv(data, f"data/{company_name}_news.csv")
+
+    processed_data = utils.process_data(data, company_name)
+    utils.save_data_to_csv(processed_data, company_name)
+    # utils.write_to_csv(data, f"data/{company_name}_news.csv")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,123 @@
+company_dict = {
+    "tdk": {
+        "name": "tdk",
+        'full_name': 'TDK株式会社',
+        "stockUrl": "https://kabutan.jp/stock/kabuka?code=6762&ashi=day&page=",
+        "newsUrl": "https://www.tdk.com/ja/news_center/press/index.html?f%5B0%5D=news_center_press_releases_display_date%3A2023",
+    },
+    "fastRetailing": {
+        "name": "fastRetailing",
+        'full_name': '株式会社ファーストリテイリング',
+        "stockUrl": "https://kabutan.jp/stock/kabuka?code=9983&ashi=day&page=",
+        "newsUrl": "https://www.fastretailing.com/jp/about/news/2023.html",
+    },
+    "jal": {
+        "name": "jal",
+        'full_name': '日本航空株式会社',
+        "stockUrl": "https://kabutan.jp/stock/kabuka?code=9201&ashi=day&page=",
+        "newsUrl": "https://press.jal.co.jp/ja/index.html",
+    },
+    "keio": {
+        "name": "keio",
+        'full_name': '京王電鉄株式会社',
+        "stockUrl": "https://kabutan.jp/stock/kabuka?code=9008&ashi=day&page=",
+        "newsUrl": "https://www.keio.co.jp/news/update/news_release/news_all.html",
+    },
+    'nichirei': {
+        'name': 'nichirei',
+        'full_name': '株式会社ニチレイ',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=2871&ashi=day&page=',
+        'newsUrl': 'https://www.nichirei.co.jp/news/2023',
+    },
+    'renesasElectronics': {
+        'name': 'renesasElectronics',
+        'full_name': 'ルネサスエレクトロニクス株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6723&ashi=day&page=',
+        'newsUrl': 'https://www.renesas.com/jp/ja/about/press-center/news-search?year=2023&news_type=press_release',
+    },
+    'yamatoHd': {
+        'name': 'yamatoHd',
+        'full_name': 'ヤマトホールディングス株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=9064&ashi=day&page=',
+        'newsUrl': 'https://www.yamato-hd.co.jp/news/?year=2023&cate=&label=all&page=',
+    },
+    'keisei': {
+        'name': 'keisei',
+        'full_name': '京成電鉄株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=9009&ashi=day&page=',
+        'newsUrl': 'https://www.keisei.co.jp/news/',
+    },
+    'tel': {
+        'name': 'tel',
+        'full_name': '東京エレクトロン株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=8035&ashi=day&page=',
+        'newsUrl': 'https://www.tel.co.jp/news/2023/index.html',
+    },
+    'advantest': {
+        'name': 'advantest',
+        'full_name': '株式会社アドバンテスト',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6857&ashi=day&page=',
+        'newsUrl': 'https://www.advantest.com/ja/news/2023/',
+    },
+    'kyocera': {
+        'name': 'kyocera',
+        'full_name': '京セラ株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6971&ashi=day&page=',
+        'newsUrl': 'https://www.kyocera.co.jp/newsroom/news/2023/index.html',
+    },
+    'screenHd': {
+        'name': 'screenHd',
+        'full_name': 'SCREENホールディングス株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=7735&ashi=day&page=',
+        'newsUrl': 'https://www.screen.co.jp/jp/news/2023/',
+    },
+    'shinetsu': {
+        'name': 'shinetsu',
+        'full_name': '信越化学工業株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=4063&ashi=day&page=',
+        'newsUrl': 'https://www.shinetsu.co.jp/jp/news/#2023',
+    },
+    'murata':{
+        'name': 'murata',
+        'full_name': '株式会社村田製作所',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6981&ashi=day&page=',
+        'newsUrl': 'https://corporate.murata.com/ja-jp/newsroom/news?year=2023&page=',
+        'newsUrl2': 'https://www.murata.com/ja-jp/news?page=',
+    },
+    'suzuki':{
+        'name': 'suzuki',
+        'full_name': 'スズキ株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=7269&ashi=day&page=',
+        'newsUrl': 'https://www.suzuki.co.jp/release/',
+    },
+    'nidec':{
+        'name': 'nidec',
+        'full_name': 'ニデック株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6594&ashi=day&page=',
+        'newsUrl': 'https://www.nidec.com/jp/corporate/news/2023/',
+    },
+    'omron':{
+        'name': 'omron',
+        'full_name': 'オムロン株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6645&ashi=day&page=',
+        'newsUrl': 'https://www.omron.com/jp/ja/news/2023/#',
+    },
+    'yasukawa':{
+        'name': 'yasukawa',
+        'full_name': '株式会社安川電機',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=6506&ashi=day&page=',
+        'newsUrl': 'https://www.yaskawa.co.jp/date/2023',
+    },
+    'hoya':{
+        'name': 'hoya',
+        'full_name': 'HOYA株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=7741&ashi=day&page=',
+        'newsUrl': 'https://www.hoya.com/news/?news_year=2023',
+    },
+    'daiwaHouse':{
+        'name': 'daiwaHouse',
+        'full_name': '大和ハウス工業株式会社',
+        'stockUrl': 'https://kabutan.jp/stock/kabuka?code=1925&ashi=day&page=',
+        'newsUrl': 'https://www.daiwahouse.co.jp/about/release/house/',
+    }
+}
